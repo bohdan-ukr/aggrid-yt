@@ -7,13 +7,8 @@ import { YtDataService } from 'src/app/services/yt-data.service';
 import 'ag-grid-enterprise'
 import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { GetMainMenuItemsParams, IRowModel, MenuItemDef } from 'ag-grid-community';
+import { YouTubeDataResponseModel } from '../../models/ytdataresponse.models';
 
-export interface YouTubeDataResponseModel {
-  title: string;
-  description: string;
-  publishedAt: string;
-  defaultImage: string;
-};
 
 @Component({
   selector: 'app-youtube',
@@ -103,12 +98,8 @@ export class YoutubeComponent implements OnInit {
       });
     })).subscribe((response: YouTubeDataResponseModel[]) => {
       this.rowData = response;
-      console.log(this.rowData);
     });
 
-    this.YtData.getData().subscribe((res) => {
-      console.log(res);
-    });
   }
 
 
@@ -127,7 +118,7 @@ export class YoutubeComponent implements OnInit {
 
   getContextMenuItems(params) {
     if (params.column.getId() == 'title') {
-      var result = [
+      const result = [
         'copy',
         {
           name: 'Open in new window',
