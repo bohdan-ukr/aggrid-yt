@@ -1,0 +1,25 @@
+.custom-checkbox {
+  font-family: "agGridAlpine";
+  font-size: 16px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  background-color: var(--ag-checkbox-background-color, var(--ag-background-color, #fff));
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  flex: none;
+}
+
+.custom-checkbox:after {
+  content: "\f108";
+  color: #999;
+  color: var(--ag-checkbox-unchecked-color, #999);
+}

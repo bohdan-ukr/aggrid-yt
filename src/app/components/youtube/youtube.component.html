@@ -1,0 +1,11 @@
+<ag-grid-angular
+    class="ag-theme-alpine"
+    [rowHeight]="100"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [rowSelection]="'multiple'"
+    [getContextMenuItems]="getContextMenuItems"
+    [frameworkComponents]="frameworkComponents"
+    [getMainMenuItems]="getMainMenuItems"
+    (gridReady)="onGridReady($event)">
+</ag-grid-angular>
