@@ -17,7 +17,7 @@ export class CheckboxComponent implements IHeaderAngularComp {
   agInit(params: IHeaderParams): void {
     this.params = params;
     params.api.addEventListener('selectionChanged', this.onSelectionChanged.bind(this));
-    console.log('params', this.params);
+    // console.log('params', this.params);
   }
 
   onSelectionChanged($event) {
@@ -37,16 +37,16 @@ export class CheckboxComponent implements IHeaderAngularComp {
     } else {
       this.params.api.deselectAll();
     }
-    console.log('onChange($event), $event:', $event);
+    // console.log('onChange($event), $event:', $event);
   }
 
   refresh(params: IHeaderParams): boolean {
-    console.log('refresh(params: IHeaderParams): boolean', params);
+    // console.log('refresh(params: IHeaderParams): boolean', params);
     var state = false;
     return state;
   }
 
-  afterGuiAttached?(params?: IAfterGuiAttachedParams): void {
-    console.log('afterGuiAttached?(params?: IAfterGuiAttachedParams): void', params);
-  }
+  // afterGuiAttached?(params?: IAfterGuiAttachedParams): void {
+  //   console.log('afterGuiAttached?(params?: IAfterGuiAttachedParams): void', params);
+  // }
 }
