@@ -9,9 +9,9 @@ import { ytInfo } from '../models/ytInfo.models'
 
 export class YtDataService {
 
- // if error 403; AIzaSyCvFQwNeJCpyGpFrtjvAsx6QYmc6Byjww8;  AIzaSyAwymeCHuncbJNQm8Kg5etc6CdOmRUuMfU
+ // if error 403; Additional key: AIzaSyAwymeCHuncbJNQm8Kg5etc6CdOmRUuMfU
 
-  apiKey = 'AIzaSyDdYaREDVCTuSQj4qrFN4vHMy8g7U2zRRI';
+  apiKey = 'AIzaSyCvFQwNeJCpyGpFrtjvAsx6QYmc6Byjww8';
   url = `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&maxResults=50&type=video&part=snippet&q=john`;
 
   constructor(private http: HttpClient) { }
