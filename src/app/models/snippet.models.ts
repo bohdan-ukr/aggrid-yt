@@ -1,4 +1,4 @@
-import { ThumbnailModel } from './thumbnail.models'
+import { ThumbnailModel } from './thumbnail.models';
 
 export interface SnippetModel {
     publishedAt: string;

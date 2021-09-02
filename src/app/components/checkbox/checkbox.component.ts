@@ -9,7 +9,7 @@ import { IAfterGuiAttachedParams, IHeaderParams, IRowModel } from 'ag-grid-commu
 })
 export class CheckboxComponent implements IHeaderAngularComp {
   params: IHeaderParams;
-  value: boolean = false;
+  value = false;
 
   constructor() { }
 
@@ -39,7 +39,7 @@ export class CheckboxComponent implements IHeaderAngularComp {
   }
 
   refresh(params: IHeaderParams): boolean {
-    var state = false;
+    let state = false;
     return state;
   }
 

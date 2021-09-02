@@ -3,4 +3,4 @@ export interface YouTubeDataResponseModel {
     description: string;
     publishedAt: string;
     defaultImage: string;
-  };
+  }

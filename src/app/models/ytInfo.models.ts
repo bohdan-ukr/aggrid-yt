@@ -1,4 +1,4 @@
-import { ItemModel } from './items.models'
+import { ItemModel } from './items.models';
 
 export interface ytInfo {
     items: ItemModel[];

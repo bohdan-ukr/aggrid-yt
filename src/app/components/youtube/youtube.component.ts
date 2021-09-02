@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { formatDate } from '@angular/common';
 import { YtDataService } from 'src/app/services/yt-data.service';
-import 'ag-grid-enterprise'
+import 'ag-grid-enterprise';
 import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { GetMainMenuItemsParams, IRowModel, MenuItemDef } from 'ag-grid-community';
 import { YouTubeDataResponseModel } from '../../models/ytdataresponse.models';
@@ -34,7 +34,7 @@ export class YoutubeComponent implements OnInit {
       width: 50
     },
     {
-      field: 'thumbnails', 
+      field: 'thumbnails',
       headerName: '',
       cellRenderer: this.defaultImageRenderer,
       width: 150
@@ -94,7 +94,7 @@ export class YoutubeComponent implements OnInit {
           description: item.snippet.description,
           publishedAt: item.snippet.publishedAt,
           defaultImage: item.snippet.thumbnails.default.url,
-        }
+        };
       });
     })).subscribe((response: YouTubeDataResponseModel[]) => {
       this.rowData = response;
@@ -105,14 +105,14 @@ export class YoutubeComponent implements OnInit {
 
   defaultImageRenderer(params) {
     return `<img alt="${params.data.defaultImage}" src="${params.data.defaultImage}">`;
-  };
+  }
 
   nameLinkRenderer(params) {
     return `<a target="_blank" href="https://www.youtube.com/watch?v=${params.data.videoId}">${params.data.title}</a>`;
-  };
+  }
 
   publishedDataFormat(params) {
-    return formatDate(params.data.publishedAt, 'yyyy-MM-dd', 'en-US')
+    return formatDate(params.data.publishedAt, 'yyyy-MM-dd', 'en-US');
   }
 
 
@@ -123,7 +123,7 @@ export class YoutubeComponent implements OnInit {
         {
           name: 'Open in new window',
           checked: true,
-          action: function () {
+          action() {
             window.open(`https://www.youtube.com/watch?v=${params.node.data.videoId}`, '_blank');
           },
         },
@@ -138,9 +138,9 @@ export class YoutubeComponent implements OnInit {
     const rowCount = rowModel.getRowCount();
     const checkboxColumn = params.columnApi.getColumn('checkbox');
     const isCheckboxColumnVisible = checkboxColumn.isVisible();
-    let mainMenuItems: MenuItemDef[] = [{
+    const mainMenuItems: MenuItemDef[] = [{
       name: '<button type="button">Selection mode</button>',
-      action: function () {
+      action() {
         params.columnApi.setColumnVisible(checkboxColumn, !isCheckboxColumnVisible);
       },
     }];
