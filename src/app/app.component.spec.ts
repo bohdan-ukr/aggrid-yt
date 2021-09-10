@@ -1,11 +1,19 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { AgGridModule } from 'ag-grid-angular';
 import { AppComponent } from './app.component';
+import { YoutubeComponent } from './components/youtube/youtube.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        AgGridModule,
+        HttpClientTestingModule
+      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        YoutubeComponent
       ],
     }).compileComponents();
   });
@@ -20,12 +28,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('agGrid');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('agGrid app is running!');
   });
 });

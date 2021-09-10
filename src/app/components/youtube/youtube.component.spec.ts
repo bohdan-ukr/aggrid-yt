@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { YoutubeComponent } from './youtube.component';
 
@@ -8,7 +10,13 @@ describe('YoutubeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ YoutubeComponent ]
+      imports: [
+        AgGridModule,
+        HttpClientTestingModule
+      ],
+      declarations: [
+        YoutubeComponent
+      ]
     })
     .compileComponents();
   });
@@ -21,5 +29,15 @@ describe('YoutubeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('the grid cells should be as expected', () => {
+    const appElement = fixture.nativeElement;
+    const cellElements = appElement.querySelectorAll('.ag-header-cell-text');
+
+    expect(cellElements.length).toEqual(4);
+    expect(cellElements[1].textContent).toEqual("Video Title");
+    expect(cellElements[2].textContent).toEqual("Description");
+    expect(cellElements[3].textContent).toEqual("Published on");
   });
 });
