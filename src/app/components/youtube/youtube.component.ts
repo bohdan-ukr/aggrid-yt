@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { formatDate } from '@angular/common';
@@ -8,6 +8,7 @@ import 'ag-grid-enterprise';
 import { CheckboxComponent } from '../checkbox/checkbox.component';
 import { GetMainMenuItemsParams, IRowModel, MenuItemDef } from 'ag-grid-community';
 import { YouTubeDataResponseModel } from '../../models/ytdataresponse.models';
+import { AgGridAngular } from 'ag-grid-angular';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { YouTubeDataResponseModel } from '../../models/ytdataresponse.models';
   styleUrls: ['./youtube.component.scss']
 })
 export class YoutubeComponent implements OnInit {
+
+  @ViewChild('agGrid') agGrid: AgGridAngular;
 
   gridApi: any;
   gridColumnApi: any;
