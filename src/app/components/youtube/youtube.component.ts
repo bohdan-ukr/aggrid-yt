@@ -142,7 +142,7 @@ export class YoutubeComponent implements OnInit {
     const checkboxColumn = params.columnApi.getColumn('checkbox');
     const isCheckboxColumnVisible = checkboxColumn.isVisible();
     const mainMenuItems: MenuItemDef[] = [{
-      name: '<button type="button">Selection mode</button>',
+      name: '<button id="selectorBtn" type="button" >Selection mode</button>',
       action() {
         params.columnApi.setColumnVisible(checkboxColumn, !isCheckboxColumnVisible);
       },

@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { AgGridModule } from 'ag-grid-angular';
+import { YouTubeDataResponseModel } from 'src/app/models/ytdataresponse.models';
 import { YtDataService } from 'src/app/services/yt-data.service';
 
 import { YoutubeComponent } from './youtube.component';
@@ -10,6 +11,7 @@ let fixture: ComponentFixture<YoutubeComponent>;
 
 
 describe('YoutubeComponent', () => {
+  let service: YtDataService;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -22,6 +24,7 @@ describe('YoutubeComponent', () => {
       providers: [YtDataService]
     })
       .compileComponents();
+    service = TestBed.inject(YtDataService);
   });
 
 
@@ -31,7 +34,7 @@ describe('YoutubeComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  
+
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
@@ -58,9 +61,18 @@ describe('YoutubeComponent', () => {
   it('getting the selected row data from the grid', () => {
     fixture.detectChanges();
     expect(component.agGrid.api).toBeTruthy();
-    let some_Data = component.agGrid.api.getSelectedRows();
+    const some_Data = component.agGrid.api.getSelectedRows();
     expect(some_Data).toBeDefined();
   });
 
+
+  it('expects service to get request',
+    inject([HttpTestingController, YtDataService],
+      (httpMock: HttpTestingController, service: YtDataService) => {
+
+        const req = httpMock.expectOne(service.url);
+        expect(req.request.method).toEqual('GET');
+
+      }));
 
 });
